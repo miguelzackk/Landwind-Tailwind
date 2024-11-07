@@ -1,38 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landwind</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-          theme: {
-            extend: {
-              colors: {
-                clifford: '#da373d',
-              }
-            }
-          }
-        }
-      </script>
-</head>
-<body>
-    <header class="a">
-      <div class="a">
-        <img src="/src/assets/image/logo-landwind.svg" alt="logo da landwind">
-        <h1>Landwind</h1>
+  </head>
+  <body>
+    <header class="w-full h-20 flex items-center px-20 justify-between text-gray-900">
+      <div class="flex items-center justify-center">
+        <img
+          src="/src/assets/image/logo-landwind.svg"
+          alt="logo da landwind"
+          class="mr-3"
+        />
+        <h1 class="mr-8 font-semibold text-2xl">Landwind</h1>
+        <nav class="flex gap-8 text-base font-medium">
+          <a href="#company">Company</a>
+          <a href="#marketplace">Marketplace</a>
+          <a href="#features">Features</a>
+          <a href="#team">Team</a>
+          <a href="#contact">Contact</a>
+        </nav>
       </div>
-      <nav>
-      <a href=""></a>
-      <a href=""></a>
-      <a href=""></a>
-      <a href=""></a>
-      <a href=""></a>
-    </nav>
-    <div class="">
-      
-    </div>
+      <div class="flex justify-center items-center gap-4">
+        <button class="text-sm font-medium">Log In</button>
+        <button class="px-5 py-3 h-9 flex items-center justify-center bg-purple-600 text-white text-sm font-medium rounded-lg">Get started</button>
+      </div>
     </header>
-</body>
+    <main class="flex items-center justify-center py-16 px-20 gap-3">
+      <aside class="flex flex-col gap-10 w-[736px]">
+        <div class="flex flex-col gap-6">
+          <h1 class="leading-none text-6xl font-black text-gray-900">Building digital products & brands.</h1>
+          <p class="text-xl font-normal text-gray-500">Here at flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
+        </div>
+        <div class="flex items-center gap-4">
+          <button class="px-5 py-3 h-9 flex items-center justify-center bg-purple-600 text-white text-sm font-medium rounded-lg" >Start 30 day free trial</button>
+          <button class="px-5 py-3 h-9 flex items-center justify-center border border-gray-200 rounded-lg text-base font-medium text-gray-800">Pricing & FAQ</button>
+        </div>
+      </aside>
+      <img src="/src/assets/image/ilustracao-empresa.svg" alt="icone de estrategia de marketing">
+    </main>
+    <section class="flex items-start justify-center pb-28">
+      <div class="flex gap-24">
+        <img src="/src/assets/image/google.svg" alt="logo google">
+        <img src="/src/assets/image/microsoft.svg" alt="logo microsoft">
+        <img src="/src/assets/image/spotify.svg" alt="logo spotify">
+        <img src="/src/assets/image/mailchimp.svg" alt="logo mailchimp">
+        <img src="/src/assets/image/airbnb.svg" alt="logo airbnb">
+        <img src="/src/assets/image/uber.svg" alt="logo uber">
+      </div>
+    </section>
+    <section class="flex flex-col py-24 px-20 gap-20 justify-center items-center bg-gray-50">
+      <article class="flex gap-16 w-[80%]">
+        <aside class="flex flex-col gap-8">
+          <div class="flex flex-col gap-4">
+            <h1 class="leading-tight text-4xl font-extrabold text-gray-900">Work with tools you already use</h1>
+            <p class="text-xl font-normal text-gray-500">Deliver great service experiences fast - without the complexity of traditional ITSM solutions.Accelerate critical development work, eliminate toil, and deploy changes with ease.</p>
+          </div>
+          <div class="flex flex-col pt-8 gap-6 border-t border-gray-200">
+            <ul class="flex flex-col gap-4 text-base font-medium text-gray-900">
+              <li class="flex gap-2">
+                <img src="/src/assets/image/check-circle.svg" alt="imagem de checkado">
+                <p>Continuous integration and deployment</p>
+              </li>
+              <li class="flex gap-2">
+                <img src="/src/assets/image/check-circle.svg" alt="imagem de checkado">
+                <p>Development workflow</p>
+              </li>
+              <li class="flex gap-2">
+                <img src="/src/assets/image/check-circle.svg" alt="imagem de checkado">
+                <p>Knowledge management</p>
+              </li>
+            </ul>
+            <p class="text-xl font-normal text-gray-500">Deliver great service experiences fast - without the complexity of traditional ITSM solutions.</p>
+          </div>
+        </aside>
+        <img src="/src/assets/image/features-1 1.svg" alt="imagens com as features da aplicação">
+      </article>
+      <article class="flex gap-16 w-[80%]">
+        <img src="/src/assets/image/feature-2 1.svg" alt="imagens com as features da aplicação">
+        <aside class="flex flex-col gap-8">
+          <div class="flex flex-col gap-4">
+            <h1 class="leading-tight text-4xl font-extrabold text-gray-900">We invest in the world’s potential</h1>
+            <p class="text-xl font-normal text-gray-500">Deliver great service experiences fast - without the complexity of traditional ITSM solutions.Accelerate critical development work, eliminate toil, and deploy changes with ease.</p>
+          </div>
+          <div class="flex flex-col pt-8 gap-6 border-t border-gray-200">
+            <ul class="flex flex-col gap-4 text-base font-medium text-gray-900">
+              <li class="flex gap-2">
+                <img src="/src/assets/image/check-circle.svg" alt="imagem de checkado">
+                <p>Dynamic reports and dashboards</p>
+              </li>
+              <li class="flex gap-2">
+                <img src="/src/assets/image/check-circle.svg" alt="imagem de checkado">
+                <p>Templates for everyone</p>
+              </li>
+              <li class="flex gap-2">
+                <img src="/src/assets/image/check-circle.svg" alt="imagem de checkado">
+                <p>Development workflow</p>
+              </li>
+              <li class="flex gap-2">
+                <img src="/src/assets/image/check-circle.svg" alt="imagem de checkado">
+                <p>Limitless business automation</p>
+              </li>
+              <li class="flex gap-2">
+                <img src="/src/assets/image/check-circle.svg" alt="imagem de checkado">
+                <p>Knowledge management</p>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </article>
+    </section>
+  </body>
 </html>
