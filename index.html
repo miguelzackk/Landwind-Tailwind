@@ -1,496 +1,918 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Landwind</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-
-<body>
-  <header class="w-full h-20 flex items-center px-20 justify-between text-gray-900">
-    <div class="flex items-center justify-center">
-      <img src="/src/assets/image/logo-landwind.svg" alt="logo da landwind" class="mr-3" />
-      <h1 class="mr-8 font-semibold text-2xl">Landwind</h1>
-      <nav class="flex gap-8 text-base font-medium">
-        <a href="#company">Company</a>
-        <a href="#marketplace">Marketplace</a>
-        <a href="#features">Features</a>
-        <a href="#team">Team</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-    <div class="flex justify-center items-center gap-4">
-      <button class="text-sm font-medium">Log In</button>
-      <button
-        class="px-5 py-3 h-9 flex items-center justify-center bg-purple-600 text-white text-sm font-medium rounded-lg">
-        Get started
-      </button>
-    </div>
-  </header>
-  <main class="flex flex-col lg:flex-row items-center justify-center py-16 px-6 md:px-20 gap-3">
-    <aside class="flex flex-col gap-10 w-full lg:w-[736px]">
-      <div class="flex flex-col gap-6 text-center lg:text-left">
-        <h1 class="leading-none text-3xl md:text-5xl lg:text-6xl font-black text-gray-900">
-          Building digital products & brands.
-        </h1>
-        <p class="text-base md:text-lg lg:text-xl font-normal text-gray-500">
-          Here at flowbite we focus on markets where technology, innovation,
-          and capital can unlock long-term value and drive economic growth.
-        </p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landwind</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <header
+      class="bg-white px-8 py-4 h-20 w-full flex items-center justify-between"
+    >
+      <div class="flex items-center">
+        <img
+          src="/src/assets/image/logo-landwind.svg"
+          alt="Landwind logo"
+          class="h-8 w-auto"
+        />
+        <h1 class="text-gray-900 text-2xl font-semibold ml-3 mr-8">Landwind</h1>
+        <nav class="hidden lg:flex gap-8">
+          <a href="#" class="text-gray-600 hover:text-gray-900">Company</a>
+          <a href="#marketplace" class="text-gray-600 hover:text-gray-900"
+            >Marketplace</a
+          >
+          <a href="#features" class="text-gray-600 hover:text-gray-900"
+            >Features</a
+          >
+          <a href="#team" class="text-gray-600 hover:text-gray-900">Team</a>
+          <a href="#contact" class="text-gray-600 hover:text-gray-900"
+            >Contact</a
+          >
+        </nav>
       </div>
-      <div class="flex flex-col sm:flex-row items-center gap-4">
+      <div class="flex items-center gap-4">
         <button
-          class="px-5 py-3 h-10 w-full sm:w-auto flex items-center justify-center bg-purple-600 text-white text-sm font-medium rounded-lg">
-          Start 30 day free trial
+          class="text-sm font-medium text-gray-600 hidden hover:scale-110 lg:inline"
+        >
+          Log In
         </button>
         <button
-          class="px-5 py-3 h-10 w-full sm:w-auto flex items-center justify-center border border-gray-200 rounded-lg text-sm lg:text-base font-medium text-gray-800">
-          Pricing & FAQ
+          class="px-3 py-2 font-medium text-sm text-white bg-purple-600 hover:bg-purple-700 rounded-lg hidden lg:inline"
+        >
+          Get started
+        </button>
+        <button class="lg:hidden flex items-center" onclick="toggleMenu()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
         </button>
       </div>
-    </aside>
-    <img src="/src/assets/image/ilustracao-empresa.svg" alt="icone de estrategia de marketing"
-      class="w-full max-w-xs md:max-w-sm lg:max-w-md mt-6 lg:mt-0 lg:ml-6" />
-  </main>
-  
-  <section class="flex justify-center items-center pb-28">
-    <div class="flex flex-wrap items-center justify-center lg:flex-row gap-24 w-full">
-      <img src="/src/assets/image/google.svg" alt="logo google" />
-      <img src="/src/assets/image/microsoft.svg" alt="logo microsoft" />
-      <img src="/src/assets/image/spotify.svg" alt="logo spotify" />
-      <img src="/src/assets/image/mailchimp.svg" alt="logo mailchimp" />
-      <img src="/src/assets/image/airbnb.svg" alt="logo airbnb" />
-      <img src="/src/assets/image/uber.svg" alt="logo uber" />
-    </div>
-  </section>
-  <section class="flex flex-col py-24 px-20 gap-20 justify-center items-center bg-gray-50">
-    <article class="flex gap-16 w-[80%]">
-      <aside class="flex flex-col gap-8">
-        <div class="flex flex-col gap-4">
-          <h1 class="leading-tight text-4xl font-extrabold text-gray-900">
-            Work with tools you already use
+      <div
+        id="mobileMenu"
+        class="lg:hidden fixed inset-0 bg-white z-50 hidden flex-col items-center gap-6 pt-20 px-8 transition-all duration-300 transform translate-y-full opacity-0"
+      >
+        <button
+          class="absolute top-5 right-5 text-gray-600"
+          onclick="toggleMenu()"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+        <nav
+          class="flex flex-col items-center gap-6 text-lg font-medium text-gray-800"
+        >
+          <a href="#" class="hover:text-gray-900">Company</a>
+          <a href="#marketplace" class="hover:text-gray-900">Marketplace</a>
+          <a href="#features" class="hover:text-gray-900">Features</a>
+          <a href="#team" class="hover:text-gray-900">Team</a>
+          <a href="#contact" class="hover:text-gray-900">Contact</a>
+        </nav>
+        <button
+          class="w-full text-center text-base font-medium text-gray-600 py-2 mt-6"
+        >
+          Log In
+        </button>
+        <button
+          class="w-full text-center px-6 py-3 font-medium text-base text-white bg-purple-600 rounded-lg"
+        >
+          Get started
+        </button>
+      </div>
+    </header>
+    <main
+      class="flex flex-col lg:flex-row items-center justify-center py-16 px-6 md:px-20 gap-3"
+    >
+      <aside class="flex flex-col gap-10 w-full lg:w-[736px]">
+        <div class="flex flex-col gap-6 text-center lg:text-left">
+          <h1
+            class="leading-none text-3xl md:text-5xl lg:text-6xl font-black text-gray-900"
+          >
+            Building digital products & brands.
           </h1>
-          <p class="text-xl font-normal text-gray-500">
-            Deliver great service experiences fast - without the complexity of
-            traditional ITSM solutions.Accelerate critical development work,
-            eliminate toil, and deploy changes with ease.
+          <p class="text-base md:text-lg lg:text-xl font-normal text-gray-500">
+            Here at flowbite we focus on markets where technology, innovation,
+            and capital can unlock long-term value and drive economic growth.
           </p>
         </div>
-        <div class="flex flex-col pt-8 gap-6 border-t border-gray-200">
-          <ul class="flex flex-col gap-4 text-base font-medium text-gray-900">
-            <li class="flex gap-2">
-              <img src="/src/assets/image/check-circle.svg" alt="imagem de checkado" />
-              <p>Continuous integration and deployment</p>
-            </li>
-            <li class="flex gap-2">
-              <img src="/src/assets/image/check-circle.svg" alt="imagem de checkado" />
-              <p>Development workflow</p>
-            </li>
-            <li class="flex gap-2">
-              <img src="/src/assets/image/check-circle.svg" alt="imagem de checkado" />
-              <p>Knowledge management</p>
-            </li>
-          </ul>
-          <p class="text-xl font-normal text-gray-500">
-            Deliver great service experiences fast - without the complexity of
-            traditional ITSM solutions.
-          </p>
-        </div>
-      </aside>
-      <img src="/src/assets/image/features-1 1.svg" alt="imagens com as features da aplicação" />
-    </article>
-    <article class="flex gap-16 w-[80%]">
-      <img src="/src/assets/image/feature-2 1.svg" alt="imagens com as features da aplicação" />
-      <aside class="flex flex-col gap-8">
-        <div class="flex flex-col gap-4">
-          <h1 class="leading-tight text-4xl font-extrabold text-gray-900">
-            We invest in the world's potential
-          </h1>
-          <p class="text-xl font-normal text-gray-500">
-            Deliver great service experiences fast - without the complexity of
-            traditional ITSM solutions.Accelerate critical development work,
-            eliminate toil, and deploy changes with ease.
-          </p>
-        </div>
-        <div class="flex flex-col pt-8 gap-6 border-t border-gray-200">
-          <ul class="flex flex-col gap-4 text-base font-medium text-gray-900">
-            <li class="flex gap-2">
-              <img src="/src/assets/image/check-circle.svg" alt="imagem de checkado" />
-              <p>Dynamic reports and dashboards</p>
-            </li>
-            <li class="flex gap-2">
-              <img src="/src/assets/image/check-circle.svg" alt="imagem de checkado" />
-              <p>Templates for everyone</p>
-            </li>
-            <li class="flex gap-2">
-              <img src="/src/assets/image/check-circle.svg" alt="imagem de checkado" />
-              <p>Development workflow</p>
-            </li>
-            <li class="flex gap-2">
-              <img src="/src/assets/image/check-circle.svg" alt="imagem de checkado" />
-              <p>Limitless business automation</p>
-            </li>
-            <li class="flex gap-2">
-              <img src="/src/assets/image/check-circle.svg" alt="imagem de checkado" />
-              <p>Knowledge management</p>
-            </li>
-          </ul>
-        </div>
-      </aside>
-    </article>
-  </section>
-  <main class="bg-white flex items-center justify-center w-full h-[524px]">
-    <section class="py-24 px-20 flex flex-row gap-24">
-      <aside class="py-5 w-[640px] h-[292px]">
-        <a href="#" class="text-purple-600 leading-none text-lg font-medium">
-          Trusted Worldwide
-        </a>
-        <div class="flex flex-col gap-4">
-          <h1 class="mt-3 text-gray-900 leading-tight text-4xl font-extrabold">
-            Trusted by over 600 million users and 10,000 teams
-          </h1>
-          <h6 class="text-gray-500 text-xl font-light mb-6">
-            Our rigorous security and compliance standards are at the heart of
-            all we do. We work tirelessly to protect you and your customers.
-          </h6>
-        </div>
-        <div class="border-t border-gray-200">
-          <button class="flex flex-row mt-6">
-            <a href="" class="text-purple-600 leading-none text-base font-medium mr-2">Explore Legality Guide</a><img
-              src="/src/assets/image/seta.svg" alt="Ícone de Seta" class="w-4 h-4" />
+        <div class="flex flex-col sm:flex-row items-center gap-4">
+          <button
+            class="px-5 py-3 h-10 w-full sm:w-auto flex items-center justify-center bg-purple-600 text-white text-sm font-medium rounded-lg"
+          >
+            Start 30 day free trial
+          </button>
+          <button
+            class="px-5 py-3 h-10 w-full sm:w-auto flex items-center justify-center border border-gray-200 rounded-lg text-sm lg:text-base font-medium text-gray-800"
+          >
+            Pricing & FAQ
           </button>
         </div>
-        <button class="flex flex-row mt-4">
-          <a href="" class="text-purple-600 leading-none text-base font-medium mr-2">Visit the Trust Center</a><img
-            src="/src/assets/image/seta.svg" alt="Ícone de Seta" class="w-4 h-4" />
-        </button>
       </aside>
-      <div>
-        <div class="flex gap-8">
-          <div class="w-64 h-[150px]">
-            <img src="/src/assets/image/banco-de-dados.svg" alt="Ícone de Banco de Dados" class="w-12 h-12" />
-            <h1 class="mt-4 text-gray-900 leading-tight text-2xl font-bold">
-              99.99% uptime
+      <img
+        src="/src/assets/image/ilustracao-empresa.svg"
+        alt="icone de estrategia de marketing"
+        class="w-full max-w-xs md:max-w-sm lg:max-w-md mt-6 lg:mt-0 lg:ml-6"
+      />
+    </main>
+    <div
+      class="flex flex-wrap gap-2 md:gap-8 lg:gap-24 items-center justify-center px-6 lg:px-20 py-8 lg:py-12 w-full"
+    >
+      <img
+        class="h-10 w-24 lg:w-32"
+        src="/src/assets/image/Google.svg"
+        alt="logo"
+      />
+      <img
+        class="h-10 w-24 lg:w-32"
+        src="/src/assets/image/Microsoft.svg"
+        alt="logo"
+      />
+      <img
+        class="h-10 w-24 lg:w-32"
+        src="/src/assets/image/Spotify.svg"
+        alt="logo"
+      />
+      <img
+        class="h-10 w-24 lg:w-32"
+        src="/src/assets/image/Mailchimp.svg"
+        alt=""
+      />
+      <img
+        class="h-10 w-24 lg:w-32"
+        src="/src/assets/image/Airbnb.svg"
+        alt="logo"
+      />
+      <img
+        class="h-10 w-24 lg:w-32"
+        src="/src/assets/image/uber.svg"
+        alt="logo"
+      />
+    </div>
+    <section
+      class="flex flex-col py-24 px-5 lg:px-20 gap-20 justify-center items-center bg-gray-50"
+    >
+      <article class="flex lg:flex-row flex-col gap-16 w-full max-w-screen-xl">
+        <aside class="flex flex-col gap-8 w-full lg:w-1/2">
+          <div class="flex flex-col gap-4">
+            <h1
+              class="leading-tight text-3xl lg:text-4xl font-extrabold text-gray-900"
+            >
+              Work with tools you already use
             </h1>
-            <p class="text-gray-500 text-base font-light mt-2">
-              for Flowbite, with zero <br />maintenance downtime
+            <p class="text-base lg:text-xl font-normal text-gray-500">
+              Deliver great service experiences fast - without the complexity of
+              traditional ITSM solutions. Accelerate critical development work,
+              eliminate toil, and deploy changes with ease.
             </p>
           </div>
-          <div class="w-64 h-[150px]">
-            <img src="/src/assets/image/users.svg" alt="Ícone de Usuários" />
-            <h1 class="mt-4 text-gray-900 leading-tight text-2xl font-bold">
-              600M+ Users
-            </h1>
-            <p class="text-gray-500 text-base font-light mt-2">
-              trusted by over 600 milion users around the world
+          <div class="flex flex-col pt-8 gap-6 border-t border-gray-200">
+            <ul
+              class="flex flex-col gap-4 text-sm lg:text-base font-medium text-gray-900"
+            >
+              <li class="flex gap-2">
+                <img
+                  src="/src/assets/image/check-circle.svg"
+                  alt="imagem de checkado"
+                />
+                <p>Continuous integration and deployment</p>
+              </li>
+              <li class="flex gap-2">
+                <img
+                  src="/src/assets/image/check-circle.svg"
+                  alt="imagem de checkado"
+                />
+                <p>Development workflow</p>
+              </li>
+              <li class="flex gap-2">
+                <img
+                  src="/src/assets/image/check-circle.svg"
+                  alt="imagem de checkado"
+                />
+                <p>Knowledge management</p>
+              </li>
+            </ul>
+            <p class="text-base lg:text-xl font-normal text-gray-500">
+              Deliver great service experiences fast - without the complexity of
+              traditional ITSM solutions.
             </p>
+          </div>
+        </aside>
+        <img
+          src="/src/assets/image/features-1 1.svg"
+          alt="imagens com as features da aplicação"
+          class="w-full lg:w-auto max-w-[608px] h-auto"
+        />
+      </article>
+
+      <article
+        class="flex lg:flex-row flex-col-reverse gap-16 w-full max-w-screen-xl"
+      >
+        <img
+          src="/src/assets/image/feature-2 1.svg"
+          alt="imagens com as features da aplicação"
+          class="w-full lg:w-auto max-w-[608px] h-auto"
+        />
+        <aside class="flex flex-col gap-8 w-full lg:w-1/2">
+          <div class="flex flex-col gap-4">
+            <h1
+              class="leading-tight text-3xl lg:text-4xl font-extrabold text-gray-900"
+            >
+              We invest in the world's potential
+            </h1>
+            <p class="text-base lg:text-xl font-normal text-gray-500">
+              Deliver great service experiences fast - without the complexity of
+              traditional ITSM solutions. Accelerate critical development work,
+              eliminate toil, and deploy changes with ease.
+            </p>
+          </div>
+          <div class="flex flex-col pt-8 gap-6 border-t border-gray-200">
+            <ul
+              class="flex flex-col gap-4 text-sm lg:text-base font-medium text-gray-900"
+            >
+              <li class="flex gap-2">
+                <img
+                  src="/src/assets/image/check-circle.svg"
+                  alt="imagem de checkado"
+                />
+                <p>Dynamic reports and dashboards</p>
+              </li>
+              <li class="flex gap-2">
+                <img
+                  src="/src/assets/image/check-circle.svg"
+                  alt="imagem de checkado"
+                />
+                <p>Templates for everyone</p>
+              </li>
+              <li class="flex gap-2">
+                <img
+                  src="/src/assets/image/check-circle.svg"
+                  alt="imagem de checkado"
+                />
+                <p>Development workflow</p>
+              </li>
+              <li class="flex gap-2">
+                <img
+                  src="/src/assets/image/check-circle.svg"
+                  alt="imagem de checkado"
+                />
+                <p>Limitless business automation</p>
+              </li>
+              <li class="flex gap-2">
+                <img
+                  src="/src/assets/image/check-circle.svg"
+                  alt="imagem de checkado"
+                />
+                <p>Knowledge management</p>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </article>
+    </section>
+
+    <main
+      class="bg-white flex items-center justify-center w-full min-h-[524px]"
+    >
+      <section
+        class="py-12 px-6 lg:py-24 lg:px-20 flex flex-col lg:flex-row gap-12 lg:gap-24"
+      >
+        <aside class="py-5 lg:w-[640px] lg:h-[292px]">
+          <a href="#" class="text-purple-600 leading-none text-lg font-medium">
+            Trusted Worldwide
+          </a>
+          <div class="flex flex-col gap-4">
+            <h1
+              class="mt-3 text-gray-900 leading-tight text-xl lg:text-2xl xl:text-4xl font-extrabold"
+            >
+              Trusted by over 600 million users and 10,000 teams
+            </h1>
+            <h6 class="text-gray-500 text-lg lg:text-xl font-light mb-6">
+              Our rigorous security and compliance standards are at the heart of
+              all we do. We work tirelessly to protect you and your customers.
+            </h6>
+          </div>
+          <div class="border-t border-gray-200 pt-6">
+            <button class="flex flex-row mt-6">
+              <a
+                href=""
+                class="text-purple-600 leading-none text-base font-medium mr-2"
+                >Explore Legality Guide</a
+              >
+              <img
+                src="/src/assets/image/seta.svg"
+                alt="Ícone de Seta"
+                class="w-4 h-4"
+              />
+            </button>
+          </div>
+          <button class="flex flex-row mt-4">
+            <a
+              href=""
+              class="text-purple-600 leading-none text-base font-medium mr-2"
+              >Visit the Trust Center</a
+            >
+            <img
+              src="/src/assets/image/seta.svg"
+              alt="Ícone de Seta"
+              class="w-4 h-4"
+            />
+          </button>
+        </aside>
+        <div>
+          <div class="flex flex-wrap gap-8 lg:gap-8">
+            <div class="w-full sm:w-1/2 lg:w-64 h-[150px]">
+              <img
+                src="/src/assets/image/banco-de-dados.svg"
+                alt="Ícone de Banco de Dados"
+                class="w-12 h-12 mx-auto"
+              />
+              <h1
+                class="mt-4 text-gray-900 leading-tight text-xl lg:text-2xl font-bold text-center"
+              >
+                99.99% uptime
+              </h1>
+              <p
+                class="text-gray-500 text-sm lg:text-base font-light mt-2 text-center"
+              >
+                for Flowbite, with zero <br />maintenance downtime
+              </p>
+            </div>
+            <div class="w-full sm:w-1/2 lg:w-64 h-[150px]">
+              <img
+                src="/src/assets/image/users.svg"
+                alt="Ícone de Usuários"
+                class="mx-auto"
+              />
+              <h1
+                class="mt-4 text-gray-900 leading-tight text-xl lg:text-2xl font-bold text-center"
+              >
+                600M+ Users
+              </h1>
+              <p
+                class="text-gray-500 text-sm lg:text-base font-light mt-2 text-center"
+              >
+                trusted by over 600 million users around the world
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-8 lg:gap-8 mt-8">
+            <div class="w-full sm:w-1/2 lg:w-64 h-[150px]">
+              <img
+                src="/src/assets/image/shopping-cart.svg"
+                alt="Ícone carrinho de supermercado"
+                class="w-12 h-12 mx-auto"
+              />
+              <h1
+                class="mt-4 text-gray-900 leading-tight text-xl lg:text-2xl font-bold text-center"
+              >
+                Millions
+              </h1>
+              <p
+                class="text-gray-500 text-sm lg:text-base font-light mt-2 text-center"
+              >
+                of transactions per day
+              </p>
+            </div>
+            <div class="w-full sm:w-1/2 lg:w-64 h-[150px]">
+              <img
+                src="/src/assets/image/globe.svg"
+                alt="Ícone do Planeta"
+                class="mx-auto"
+              />
+              <h1
+                class="mt-4 text-gray-900 leading-tight text-xl lg:text-2xl font-bold text-center"
+              >
+                100+ countries
+              </h1>
+              <p
+                class="text-gray-500 text-sm lg:text-base font-light mt-2 text-center"
+              >
+                have used Flowbite to create functional websites
+              </p>
+            </div>
           </div>
         </div>
-        <div class="flex gap-8 mt-8">
-          <div class="w-64 h-[150px]">
-            <img src="/src/assets/image/shopping-cart.svg" alt="Ícone carrinho de supermercado." class="w-12 h-12" />
-            <h1 class="mt-4 text-gray-900 leading-tight text-2xl font-bold">
-              Millions
-            </h1>
-            <p class="text-gray-500 text-base font-light mt-2">
-              of transactions per day
-            </p>
+      </section>
+    </main>
+    <section class="bg-gray-50 w-full h-auto py-12 sm:py-24 px-6 sm:px-20">
+      <div class="flex flex-col justify-center items-center gap-6">
+        <img
+          src="/src/assets/image/aspas.svg"
+          alt="Ícone de aspas"
+          class="w-12 sm:w-16"
+        />
+        <h1
+          class="text-gray-900 text-center leading-relaxed text-lg sm:text-2xl font-semibold w-full sm:w-[768px] mx-auto"
+        >
+          "Flowbite is just awesome. It contains tons of predesigned components
+          and pages starting from login screen to complex dashboard. Perfect
+          choice for your next SaaS application."
+        </h1>
+        <div class="flex flex-col sm:flex-row gap-3 items-center">
+          <img
+            src="/src/assets/image/homem-avatar.svg"
+            alt="Avatar Masculino"
+            class="w-8 sm:w-10"
+          />
+          <p class="text-gray-900 leading-tight text-base font-semibold">
+            Micheal Gough
+          </p>
+          <p class="text-gray-900 leading-tight text-base font-semibold">/</p>
+          <p
+            class="text-gray-500 leading-tight text-sm sm:text-base font-normal"
+          >
+            CEO at Google
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="w-full h-auto py-12 sm:py-24 px-6 sm:px-20">
+      <div class="text-center flex flex-col justify-center items-center">
+        <h1
+          class="text-gray-900 leading-tight text-2xl sm:text-3xl md:text-4xl font-extrabold mb-4"
+        >
+          Pay as you grow
+        </h1>
+
+        <p
+          class="text-gray-500 text-lg sm:text-xl font-normal w-full sm:w-[768px] mx-auto mb-12"
+        >
+          Here at Flowbite, we focus on markets where technology, innovation,
+          and capital can unlock long-term value and drive economic growth.
+        </p>
+        <div
+          class="flex flex-col xl:flex-row gap-10 justify-center items-center sm:gap-8"
+        >
+          <div
+            class="w-full sm:w-[350px] h-auto flex flex-col gap-8 border shadow-lg p-6 rounded-lg"
+          >
+            <div class="text-center flex flex-col gap-4">
+              <h1 class="text-gray-900 text-2xl font-semibold">Starter</h1>
+              <p class="text-gray-500 text-lg font-normal">
+                Great for personal use and for your side projects.
+              </p>
+            </div>
+            <div class="flex items-end justify-center gap-2">
+              <h1
+                class="text-gray-900 leading-none text-4xl sm:text-5xl font-extrabold"
+              >
+                $49
+              </h1>
+              <h6 class="text-gray-500 text-lg font-medium">/month</h6>
+            </div>
+            <div class="flex flex-col gap-4">
+              <div class="flex items-center gap-2">
+                <img
+                  src="/src/assets/image/check.svg"
+                  alt="Ícone de check verde"
+                />
+                <p class="text-gray-900 text-base font-normal">
+                  Individual configuration
+                </p>
+              </div>
+              <div class="flex items-center gap-2">
+                <img
+                  src="/src/assets/image/check.svg"
+                  alt="Ícone de check verde"
+                />
+                <p class="text-gray-900 text-base font-normal">
+                  No setup, monthly, or hidden fees
+                </p>
+              </div>
+              <div class="flex items-center gap-2">
+                <img
+                  src="/src/assets/image/check.svg"
+                  alt="Ícone de check verde"
+                />
+                <p class="text-gray-900 text-base font-normal">
+                  Team size: 1 developer
+                </p>
+              </div>
+              <div class="flex items-center gap-2">
+                <img
+                  src="/src/assets/image/check.svg"
+                  alt="Ícone de check verde"
+                />
+                <p class="text-gray-900 text-base font-normal">
+                  Premium support: 6 months
+                </p>
+              </div>
+              <div class="flex items-center gap-2">
+                <img
+                  src="/src/assets/image/check.svg"
+                  alt="Ícone de check verde"
+                />
+                <p class="text-gray-900 text-base font-normal">
+                  Free updates: 6 months
+                </p>
+              </div>
+            </div>
+            <div class="flex justify-center items-center text-center">
+              <button
+                class="bg-purple-600 w-full sm:w-[366px] h-[41px] rounded-lg py-[10px] px-[20px] text-sm font-medium text-white"
+              >
+                Get started
+              </button>
+            </div>
           </div>
-          <div class="w-64 h-[150px]">
-            <img src="/src/assets/image/globe.svg" alt="Ícone do Planeta" />
-            <h1 class="mt-4 text-gray-900 leading-tight text-2xl font-bold">
-              100+ countries
-            </h1>
-            <p class="text-gray-500 text-base font-light mt-2">
-              have used Flowbite to create functional websites
-            </p>
+          <div
+            class="w-full sm:w-[350px] h-auto flex flex-col gap-8 border shadow-lg p-6 rounded-lg"
+          >
+            <div class="text-center flex flex-col gap-4">
+              <h1 class="text-gray-900 text-2xl font-semibold">Company</h1>
+              <p class="text-gray-500 text-lg font-normal">
+                Best for large scale uses and extended redistribution rights.
+              </p>
+            </div>
+            <div class="flex items-end justify-center gap-2">
+              <h1
+                class="text-gray-900 leading-none text-4xl sm:text-5xl font-extrabold"
+              >
+                $99
+              </h1>
+              <h6 class="text-gray-500 text-lg font-medium">/month</h6>
+            </div>
+            <div class="flex flex-col gap-4">
+              <div class="flex items-center gap-2">
+                <img
+                  src="/src/assets/image/check.svg"
+                  alt="Ícone de check verde"
+                />
+                <p class="text-gray-900 text-base font-normal">
+                  Individual configuration
+                </p>
+              </div>
+              <div class="flex items-center gap-2">
+                <img
+                  src="/src/assets/image/check.svg"
+                  alt="Ícone de check verde"
+                />
+                <p class="text-gray-900 text-base font-normal">
+                  No setup, monthly, or hidden fees
+                </p>
+              </div>
+              <div class="flex items-center gap-2">
+                <img
+                  src="/src/assets/image/check.svg"
+                  alt="Ícone de check verde"
+                />
+                <p class="text-gray-900 text-base font-normal">
+                  Team size: 10 developers
+                </p>
+              </div>
+              <div class="flex items-center gap-2">
+                <img
+                  src="/src/assets/image/check.svg"
+                  alt="Ícone de check verde"
+                />
+                <p class="text-gray-900 text-base font-normal">
+                  Premium support: 24 months
+                </p>
+              </div>
+              <div class="flex items-center gap-2">
+                <img
+                  src="/src/assets/image/check.svg"
+                  alt="Ícone de check verde"
+                />
+                <p class="text-gray-900 text-base font-normal">
+                  Free updates: 24 months
+                </p>
+              </div>
+            </div>
+            <div class="flex justify-center items-center text-center">
+              <button
+                class="bg-purple-600 w-full sm:w-[366px] h-[41px] rounded-lg py-[10px] px-[20px] text-sm font-medium text-white"
+              >
+                Get started
+              </button>
+            </div>
+          </div>
+          <div
+            class="w-full sm:w-[350px] h-auto flex flex-col gap-8 border shadow-lg p-6 rounded-lg"
+          >
+            <div class="text-center flex flex-col gap-4">
+              <h1 class="text-gray-900 text-2xl font-semibold">Enterprise</h1>
+              <p class="text-gray-500 text-lg font-normal">
+                Best for large scale uses and extended redistribution rights.
+              </p>
+            </div>
+            <div class="flex items-end justify-center gap-2">
+              <h1
+                class="text-gray-900 leading-none text-4xl sm:text-5xl font-extrabold"
+              >
+                $499
+              </h1>
+              <h6 class="text-gray-500 text-lg font-medium">/month</h6>
+            </div>
+            <div class="flex flex-col gap-4">
+              <div class="flex items-center gap-2">
+                <img
+                  src="/src/assets/image/check.svg"
+                  alt="Ícone de check verde"
+                />
+                <p class="text-gray-900 text-base font-normal">
+                  Individual configuration
+                </p>
+              </div>
+              <div class="flex items-center gap-2">
+                <img
+                  src="/src/assets/image/check.svg"
+                  alt="Ícone de check verde"
+                />
+                <p class="text-gray-900 text-base font-normal">
+                  No setup, monthly, or hidden fees
+                </p>
+              </div>
+              <div class="flex items-center gap-2">
+                <img
+                  src="/src/assets/image/check.svg"
+                  alt="Ícone de check verde"
+                />
+                <p class="text-gray-900 text-base font-normal">
+                  Team size: 100+ developers
+                </p>
+              </div>
+              <div class="flex items-center gap-2">
+                <img
+                  src="/src/assets/image/check.svg"
+                  alt="Ícone de check verde"
+                />
+                <p class="text-gray-900 text-base font-normal">
+                  Premium support: 36 months
+                </p>
+              </div>
+              <div class="flex items-center gap-2">
+                <img
+                  src="/src/assets/image/check.svg"
+                  alt="Ícone de check verde"
+                />
+                <p class="text-gray-900 text-base font-normal">
+                  Free updates: 36 months
+                </p>
+              </div>
+            </div>
+            <div class="flex justify-center items-center text-center">
+              <button
+                class="bg-purple-600 w-full sm:w-[366px] h-[41px] rounded-lg py-[10px] px-[20px] text-sm font-medium text-white"
+              >
+                Get started
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </section>
-  </main>
-  <section class="bg-gray-50 w-full h-[426px]">
-    <div class="py-24 px-20 flex flex-col justify-center items-center gap-6">
-      <img src="/src/assets/image/aspas.svg" alt="Ícone de aspas" />
-      <h1 class="text-gray-900 text-center leading-relaxed text-2xl font-semibold w-[768px] h-[117px] ">
-        "Flowbite is just awesome. It contains tons of predesigned components
-        and pages starting from login screen to complex dashboard. Perfect
-        choice for your next SaaS application."
-      </h1>
-      <div class="flex gap-3">
-        <img src="/src/assets/image/homem-avatar.svg" alt="Avatar Masculino" class="w-6" />
-        <p class="text-gray-900 leading-tight text-base font-semibold">
-          Micheal Gough
+    <section class="w-full h-auto">
+      <div
+        class="px-6 sm:px-20 pb-24 flex flex-col items-center justify-center gap-8"
+      >
+        <div class="text-center">
+          <h1
+            class="text-gray-900 leading-tight text-2xl sm:text-4xl font-extrabold"
+          >
+            Frequently asked questions
+          </h1>
+        </div>
+        <div class="w-full sm:w-[695px] h-auto">
+          <div
+            class="flex justify-between items-center w-full sm:w-[695px] h-[66px] border-b border-gray-200"
+          >
+            <p class="text-gray-900 leading-none text-lg font-medium">
+              Can I use FlowBite in open-source projects?
+            </p>
+            <img
+              src="/src/assets/image/seta-up.svg"
+              alt="Ícone Seta"
+              class="w-4 h-4"
+            />
+          </div>
+          <div
+            class="py-5 text-gray-500 text-base font-normal flex flex-col gap-[6px] w-full sm:w-[695px] border-b border-gray-200"
+          >
+            <p>
+              Generally, it is accepted to use FlowBite in open-source projects,
+              as long as it is not a <br />UI library, a theme, a template, a
+              page-builder that would be considered as an <br />
+              alternative to FlowBite itself.
+            </p>
+            <p>
+              With that being said, feel free to use this design kit for your
+              open-source projects.
+            </p>
+            <p>
+              Find out more information by
+              <a href="#" class="text-purple-600">reading the license.</a>
+            </p>
+          </div>
+          <div
+            class="flex justify-between items-center w-full sm:w-[695px] h-[66px] border-b border-gray-200"
+          >
+            <p class="text-gray-500 leading-none text-lg font-medium">
+              Where can I access my download files?
+            </p>
+            <img
+              src="/src/assets/image/seta-down.svg"
+              alt="Ícone Seta"
+              class="w-4 h-4"
+            />
+          </div>
+          <div
+            class="flex justify-between items-center w-full sm:w-[695px] h-[66px] border-b border-gray-200"
+          >
+            <p class="text-gray-500 leading-none text-lg font-medium">
+              Can I use FlowBite for commercial purposes?
+            </p>
+            <img
+              src="/src/assets/image/seta-down.svg"
+              alt="Ícone Seta"
+              class="w-4 h-4"
+            />
+          </div>
+          <div
+            class="flex justify-between items-center w-full sm:w-[695px] h-[66px]"
+          >
+            <p class="text-gray-500 leading-none text-lg font-medium">
+              What about browser support?
+            </p>
+            <img
+              src="/src/assets/image/seta-down.svg"
+              alt="Ícone Seta"
+              class="w-4 h-4"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="w-full h-[363px] flex justify-center items-center bg-gray-50"
+    >
+      <div
+        class="flex flex-col items-center py-24 px-6 sm:px-12 lg:px-24 gap-6 text-center"
+      >
+        <h1
+          class="text-gray-900 text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight"
+        >
+          Start your free trial today
+        </h1>
+        <p class="text-gray-500 text-xl sm:text-2xl font-normal">
+          Try Flowbite Platform for 30 days. No credit card required.
         </p>
-        <p class="text-gray-900 leading-tight text-base font-semibold">/</p>
-        <p class="text-gray-500 leading-tight text-sm font-normal">
-          CEO at Google
+        <button
+          class="bg-purple-600 text-white rounded-lg py-3 px-5 text-base sm:text-lg font-medium"
+        >
+          Free trial for 30 days
+        </button>
+      </div>
+    </section>
+    <footer class="px-6 sm:px-12 lg:px-20 py-16 bg-white">
+      <div
+        class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 justify-around gap-16"
+      >
+        <div>
+          <h6 class="text-gray-900 uppercase text-sm font-semibold">COMPANY</h6>
+          <ul class="mt-4 space-y-4">
+            <li><a href="" class="text-gray-500 text-base">About</a></li>
+            <li><a href="" class="text-gray-500 text-base">Premium</a></li>
+            <li><a href="" class="text-gray-500 text-base">Blog</a></li>
+            <li>
+              <a href="" class="text-gray-500 text-base">Affiliate Program</a>
+            </li>
+            <li><a href="" class="text-gray-500 text-base">Get Coupon</a></li>
+          </ul>
+        </div>
+        <div>
+          <h6 class="text-gray-900 uppercase text-sm font-semibold">
+            HELP AND SUPPORT
+          </h6>
+          <ul class="mt-4 space-y-4">
+            <li><a href="" class="text-gray-500 text-base">Contact Us</a></li>
+            <li>
+              <a href="" class="text-gray-500 text-base">Knowledge Center</a>
+            </li>
+            <li>
+              <a href="" class="text-gray-500 text-base">Premium Support</a>
+            </li>
+            <li><a href="" class="text-gray-500 text-base">Sponsorships</a></li>
+          </ul>
+        </div>
+        <div>
+          <h6 class="text-gray-900 uppercase text-sm font-semibold">
+            LEARNING
+          </h6>
+          <ul class="mt-4 space-y-4">
+            <li><a href="" class="text-gray-500 text-base">Learn Hub</a></li>
+            <li><a href="" class="text-gray-500 text-base">Manuals</a></li>
+            <li><a href="" class="text-gray-500 text-base">Tutorials</a></li>
+            <li><a href="" class="text-gray-500 text-base">Communities</a></li>
+          </ul>
+        </div>
+        <div>
+          <h6 class="text-gray-900 uppercase text-sm font-semibold">
+            RESOURCES
+          </h6>
+          <ul class="mt-4 space-y-4">
+            <li>
+              <a href="" class="text-gray-500 text-base">Third-Party Tools</a>
+            </li>
+            <li>
+              <a href="" class="text-gray-500 text-base">Illustrations</a>
+            </li>
+            <li><a href="" class="text-gray-500 text-base">Themesberg</a></li>
+            <li><a href="" class="text-gray-500 text-base">Bluehost</a></li>
+            <li><a href="" class="text-gray-500 text-base">Stock Photos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h6 class="text-gray-900 uppercase text-sm font-semibold">LEGAL</h6>
+          <ul class="mt-4 space-y-4">
+            <li>
+              <a href="" class="text-gray-500 text-base">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="" class="text-gray-500 text-base">Terms & Conditions</a>
+            </li>
+            <li><a href="" class="text-gray-500 text-base">EULA</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-16 text-center">
+        <div class="flex justify-center items-center gap-3">
+          <img
+            src="/src/assets/image/logo-landwind.svg"
+            alt="Logo da Landwind"
+            class="w-10 h-10"
+          />
+          <h1 class="font-semibold text-2xl">Landwind</h1>
+        </div>
+        <p class="mt-5 text-gray-500">
+          © 2022 Flowbite, Inc. All rights reserved.
         </p>
-      </div>
-    </div>
-  </section>
-  <section class="w-full h-[920px] flex flex-col items-center justify-center py-24 px-20">
-    <div class="text-center flex flex-col justify-center items-center">
-      <h1 class="text-gray-900 leading-tight text-4xl font-extrabold mb-4">
-        Pay as you grow
-      </h1>
-      <p class="text-gray-500 text-xl font-normal w-[768px] h-[60px] mb-12">
-        Here at flowbite we focus on markets where technology, innovation, and
-        capital can unlock long-term value and drive economic growth.
-      </p>
-      <div class="flex gap-10">
-        <div class="w-[400px] h-[539px] flex flex-col gap-8 border shadow-lg p-6 rounded-lg">
-          <div class="text-center flex flex-col gap-4">
-            <h1 class="text-gray-900 text-2xl font-semibold">Starter</h1>
-            <p class="text-gray-500 text-lg font-normal">
-              Great for personal use and for your side projects.
-            </p>
-          </div>
-          <div class="flex items-end justify-center gap-[10px]">
-            <h1 class="text-gray-900 leading-none text-5xl font-extrabold">
-              $49
-            </h1>
-            <h6 class="text-gray-500 text-lg font-medium">/month</h6>
-          </div>
-          <div class="flex flex-col gap-4">
-            <div class="flex items-center gap-2">
-              <img src="/src/assets/image/check.svg" alt="Ícone de check verde" />
-              <p class="text-gray-900 text-base font-normal">
-                Individual configuration
-              </p>
-            </div>
-            <div class="flex items-center gap-2">
-              <img src="/src/assets/image/check.svg" alt="Ícone de check verde" />
-              <p class="text-gray-900 text-base font-normal">
-                No setup, monthly, or hidden fees
-              </p>
-            </div>
-            <div class="flex items-center gap-2">
-              <img src="/src/assets/image/check.svg" alt="Ícone de check verde" />
-              <p class="text-gray-900 text-base font-normal">
-                Team size: 1 developer
-              </p>
-            </div>
-            <div class="flex items-center gap-2">
-              <img src="/src/assets/image/check.svg" alt="Ícone de check verde" />
-              <p class="text-gray-900 text-base font-normal">
-                Premium support: 6 months
-              </p>
-            </div>
-            <div class="flex items-center gap-2">
-              <img src="/src/assets/image/check.svg" alt="Ícone de check verde" />
-              <p class="text-gray-900 text-base font-normal">
-                Free updates: 6 months
-              </p>
-            </div>
-          </div>
-          <div class="flex justify-center items-center text-center text">
-            <button
-              class="bg-purple-600 w-[366px] h-[41px] rounded-lg py-[10px] px-[20px] text-sm font-medium text-white">
-              Get started
-            </button>
-          </div>
-        </div>
-        <div class="w-[400px] h-[539px] flex flex-col gap-8 border shadow-lg p-6 rounded-lg">
-          <div class="text-center flex flex-col gap-4">
-            <h1 class="text-gray-900 text-2xl font-semibold">Company</h1>
-            <p class="text-gray-500 text-lg font-normal">
-              Best for large scale uses and extended redistribution rights.
-            </p>
-          </div>
-          <div class="flex items-end justify-center gap-[10px]">
-            <h1 class="text-gray-900 leading-none text-5xl font-extrabold">
-              $99
-            </h1>
-            <h6 class="text-gray-500 text-lg font-medium">/month</h6>
-          </div>
-          <div class="flex flex-col gap-4">
-            <div class="flex items-center gap-2">
-              <img src="/src/assets/image/check.svg" alt="Ícone de check verde" />
-              <p class="text-gray-900 text-base font-normal">
-                Individual configuration
-              </p>
-            </div>
-            <div class="flex items-center gap-2">
-              <img src="/src/assets/image/check.svg" alt="Ícone de check verde" />
-              <p class="text-gray-900 text-base font-normal">
-                No setup, monthly, or hidden fees
-              </p>
-            </div>
-            <div class="flex items-center gap-2">
-              <img src="/src/assets/image/check.svg" alt="Ícone de check verde" />
-              <p class="text-gray-900 text-base font-normal">
-                Team size: 10 developers </p>
-            </div>
-            <div class="flex items-center gap-2">
-              <img src="/src/assets/image/check.svg" alt="Ícone de check verde" />
-              <p class="text-gray-900 text-base font-normal">
-                Premium support: 24 months </p>
-            </div>
-            <div class="flex items-center gap-2">
-              <img src="/src/assets/image/check.svg" alt="Ícone de check verde" />
-              <p class="text-gray-900 text-base font-normal">
-                Free updates: 24 months </p>
-            </div>
-          </div>
-          <div class="flex justify-center items-center text-center text">
-            <button
-              class="bg-purple-600 w-[366px] h-[41px] rounded-lg py-[10px] px-[20px] text-sm font-medium text-white">
-              Get started
-            </button>
-          </div>
-        </div>
-        <div class="w-[400px] h-[539px] flex flex-col gap-8 border shadow-lg p-6 rounded-lg">
-          <div class="text-center flex flex-col gap-4">
-            <h1 class="text-gray-900 text-2xl font-semibold">Enterprise</h1>
-            <p class="text-gray-500 text-lg font-normal">
-              Best for large scale uses and extended redistribution rights.
-            </p>
-          </div>
-          <div class="flex items-end justify-center gap-[10px]">
-            <h1 class="text-gray-900 leading-none text-5xl font-extrabold">
-              $499
-            </h1>
-            <h6 class="text-gray-500 text-lg font-medium">/month</h6>
-          </div>
-          <div class="flex flex-col gap-4">
-            <div class="flex items-center gap-2">
-              <img src="/src/assets/image/check.svg" alt="Ícone de check verde" />
-              <p class="text-gray-900 text-base font-normal">
-                Individual configuration
-              </p>
-            </div>
-            <div class="flex items-center gap-2">
-              <img src="/src/assets/image/check.svg" alt="Ícone de check verde" />
-              <p class="text-gray-900 text-base font-normal">
-                No setup, monthly, or hidden fees
-              </p>
-            </div>
-            <div class="flex items-center gap-2">
-              <img src="/src/assets/image/check.svg" alt="Ícone de check verde" />
-              <p class="text-gray-900 text-base font-normal">
-                Team size: 100+ developers
-              </p>
-            </div>
-            <div class="flex items-center gap-2">
-              <img src="/src/assets/image/check.svg" alt="Ícone de check verde" />
-              <p class="text-gray-900 text-base font-normal">
-                Premium support: 36 months
-              </p>
-            </div>
-            <div class="flex items-center gap-2">
-              <img src="/src/assets/image/check.svg" alt="Ícone de check verde" />
-              <p class="text-gray-900 text-base font-normal">
-                Free updates: 36 months
-              </p>
-            </div>
-          </div>
-          <div class="flex justify-center items-center text-center text">
-            <button
-              class="bg-purple-600 w-[366px] h-[41px] rounded-lg py-[10px] px-[20px] text-sm font-medium text-white">
-              Get started
-            </button>
-          </div>
+        <div class="flex justify-center items-center gap-5 mt-5">
+          <a href=""
+            ><img
+              src="/src/assets/image/github.svg"
+              alt="GitHub"
+              class="w-6 h-6"
+          /></a>
+          <a href=""
+            ><img
+              src="/src/assets/image/twitter.svg"
+              alt="Twitter"
+              class="w-6 h-6"
+          /></a>
+          <a href=""
+            ><img
+              src="/src/assets/image/dribbble.svg"
+              alt="Dribbble"
+              class="w-6 h-6"
+          /></a>
+          <a href=""
+            ><img
+              src="/src/assets/image/facebook-f.svg"
+              alt="Facebook"
+              class="w-6 h-6"
+          /></a>
         </div>
       </div>
-  </section>
-  <section class="w-full h-[613px]">
-    <div class="px-20 pb-24 flex flex-col items-center justify-center gap-8">
-      <div>
-        <h1 class="text-gray-900 leading-tight text-4xl font-extrabold">Frequently asked questions</h1>
-      </div>
-      <div class="w-[695px] h-[440px]">
-        <div class="flex justify-between items-center w-[695px] h-[66px] border-b border-gray-200 ">
-          <p class="text-gray-900 leading-none text-lg font-medium">Can I use FlowBite in open-source projects?</p> <img
-            src="/src/assets/image/seta-up.svg" alt="Ícone Seta" class="w-4 h-4">
-        </div>
-        <div
-          class="py-5 text-gray-500 text-base font-normal flex flex-col gap-[6px] w-[695px]  border-b border-gray-200">
-          <p>Generally, it is accepted to use FlowBite in open-source projects, as long as it is not a <br>UI library, a
-            theme, a template, a page-builder that would be considered as an <br> alternative to FlowBite itself.</p>
-          <p>With that being said, feel free to use this design kit for your open-source projects.</p>
-          <p>Find out more information by <a href="#" class="text-purple-600">reading the license.</a></p>
-        </div>
-        <div class="flex justify-between items-center w-[695px] h-[66px] border-b border-gray-200 ">
-          <p class="text-gray-500 leading-none text-lg font-medium">Where can I access my download files?</p> <img
-            src="/src/assets/image/seta-down.svg" alt="Ícone Seta" class="w-4 h-4">
-        </div>
-        <div class="flex justify-between items-center w-[695px] h-[66px] border-b border-gray-200 ">
-          <p class="text-gray-500 leading-none text-lg font-medium">Can I use FlowBite for commercial purposes?</p> <img
-            src="/src/assets/image/seta-down.svg" alt="Ícone Seta" class="w-4 h-4">
-        </div>
-        <div class="flex justify-between items-center w-[695px] h-[66px]">
-          <p class="text-gray-500 leading-none text-lg font-medium">What about browser support?</p> <img
-            src="/src/assets/image/seta-down.svg" alt="Ícone Seta" class="w-4 h-4">
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="w-full h-[363px] flex justify-center items-center bg-gray-50">
-    <div class="flex flex-col justify-center items-center py-24 px-[440px] gap-6">
-      <h1 class="text-gray-900 leading-tight text-4xl font-extrabold">Start your free trial today</h1>
-      <p class="text-gray-500 text-xl font-normal">Try Flowbite Platform for 30 days. No credit card required.</p>
-      <button class="text-white bg-purple-600 rounded-lg py-3 px-5 text-base font-medium">Free trial for 30
-        days</button>
-    </div>
-  </section>
-  <footer class="px-20 py-16 gap-16">
-    <div class="flex py-16 px-20 justify-between">
-      <ul class="flex flex-col gap-4">
-        <h6 class="text-gray-900 uppercase text-sm font-semibold">COMPANY</h6>
-        <a href="" class="text-gray-500 text-base font-normal">About</a>
-        <a href="" class="text-gray-500 text-base font-normal">Premium</a>
-        <a href="" class="text-gray-500 text-base font-normal">Blog</a>
-        <a href="" class="text-gray-500 text-base font-normal">Affiliate Program</a>
-        <a href="" class="text-gray-500 text-base font-normal">Get Coupon</a>
-      </ul>
-      <ul class="flex flex-col gap-4">
-        <h6 class="text-gray-900 uppercase text-sm font-semibold">HELP AND SUPPORT</h6>
-        <a href="" class="text-gray-500 text-base font-normal">Contact Us</a>
-        <a href="" class="text-gray-500 text-base font-normal">Knowledge Center</a>
-        <a href="" class="text-gray-500 text-base font-normal">Premium Support</a>
-        <a href="" class="text-gray-500 text-base font-normal">Sponsorships</a>
-      </ul>
-      <ul class="flex flex-col gap-4">
-        <h6 class="text-gray-900 uppercase text-sm font-semibold">LEARNING</h6>
-        <a href="" class="text-gray-500 text-base font-normal">Learn Hub</a>
-        <a href="" class="text-gray-500 text-base font-normal">Manuals</a>
-        <a href="" class="text-gray-500 text-base font-normal">Tutorials</a>
-        <a href="" class="text-gray-500 text-base font-normal">Communities</a>
-      </ul>
-      <ul class="flex flex-col gap-4">
-        <h6 class="text-gray-900 uppercase text-sm font-semibold">RESOURCES</h6>
-        <a href="" class="text-gray-500 text-base font-normal">Third-Party Tools</a>
-        <a href="" class="text-gray-500 text-base font-normal">Illustrations</a>
-        <a href="" class="text-gray-500 text-base font-normal">Themesberg</a>
-        <a href="" class="text-gray-500 text-base font-normal">Bluehost</a>
-        <a href="" class="text-gray-500 text-base font-normal">Stock Photos</a>
-      </ul>
-      <ul class="flex flex-col gap-4">
-        <h6 class="text-gray-900 uppercase text-sm font-semibold">LEGAL</h6>
-        <a href="" class="text-gray-500 text-base font-normal">Privacy Policy</a>
-        <a href="" class="text-gray-500 text-base font-normal">Terms & Conditions</a>
-        <a href="" class="text-gray-500 text-base font-normal">EULA</a>
-      </ul>
-    </div>
-    <div class="flex flex-col gap-5 justify-center items-center">
-    <div class="flex items-center justify-center">
-      <img src="/src/assets/image/logo-landwind.svg" alt="logo da landwind" class="mr-3" />
-      <h1 class="font-semibold text-2xl">Landwind</h1>
-    </div>
-      <div class="flex flex-col items-center justify-center gap-5">
-      <p class="">© 2022 Flowbite, Inc. All rights reserved.</p>
-     </div>
-     <div class="flex items-center justify-center gap-5">
-      <a href=""><img src="/src/assets/image/github.svg" alt="Ícone do GitHub">
-      <a href=""><img src="/src/assets/image/twitter.svg" alt="Ícone do Twitter"></a>
-      <a href=""><img src="/src/assets/image/dribbble.svg" alt="Ícone do Dribbble"></a>
-      <a href=""><img src="/src/assets/image/facebook-f.svg" alt="Ícone do Facebook"></a>
-     </div>
-    </div>
-  </footer>
-</body>
-
+    </footer>
+    <script>
+      function toggleMenu() {
+        const mobileMenu = document.getElementById("mobileMenu");
+        if (mobileMenu.classList.contains("hidden")) {
+          mobileMenu.classList.remove("hidden");
+          setTimeout(() => {
+            mobileMenu.classList.remove("translate-y-full", "opacity-0");
+          }, 10);
+        } else {
+          mobileMenu.classList.add("translate-y-full", "opacity-0");
+          setTimeout(() => {
+            mobileMenu.classList.add("hidden");
+          }, 300);
+        }
+      }
+    </script>
+  </body>
 </html>
