@@ -1,1 +1,1 @@
-Criação de Landpage usando Tailwind
+Criação de Landing Page usando Tailwind
